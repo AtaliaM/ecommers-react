@@ -19,7 +19,7 @@ class App extends React.Component {
             <Header />
             <Route path="/" exact component={Homepage} />
             <Route path="/products" exact component={Products} />
-            <Route path="/product/:id" component={ProductDetail}/> 
+            <Route path="/products/:id" component={ProductDetail}/> 
           </div>
         </BrowserRouter>
       </div>

@@ -9,17 +9,25 @@ const ProductDetail = (props) => {
         console.log(id);
         console.log(props);
 
-        return (
-            <div style={{ display: "inline-block", border: "1px solid black", margin: "10px", padding: "5px" }}>
-                <h3>{props.location.obj.title}</h3>
-                <img src={props.location.obj.imageUrl} alt={props.location.obj.title}
-                    style={{ width: "230px", height: "330px" }}></img>
-                <h3>{`Price: ${props.location.obj.price}`}</h3>
-                <h3>{`Size: ${props.location.obj.size}`}</h3>
+        if (props.location.obj.title) {
+            return (
+                <div style={{ display: "inline-block", border: "1px solid black", margin: "10px", padding: "5px" }}>
+                    <h3>{props.location.obj.title}</h3>
+                    <img src={props.location.obj.imageUrl} alt={props.location.obj.title}
+                        style={{ width: "230px", height: "330px" }}></img>
+                    <h3>{`Price: ${props.location.obj.price}`}</h3>
+                    <h3>{`Size: ${props.location.obj.size}`}</h3>
+    
+                    <Link to={`/products`}>Back to products</Link>
+                </div>
+            );
 
-                <Link to={`/products`}>Back to products</Link>
-            </div>
-        );
+        }
+
+        else {
+            return <div>Product not found</div>
+        }
+
     
 }
 

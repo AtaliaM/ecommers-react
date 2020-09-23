@@ -5,21 +5,23 @@ import './Products.css';
 
 class Products extends React.Component {
 
-    state = { products: [] }
+    state = { products: [],}
 
     componentDidMount() {
-        console.log(store);
-        this.setState({ products: store })
+        // console.log(store);
+        this.setState({ products: store,})
     }
 
     render() {
+        
         return (
+            
             <div className="products-container">
                 <h2>Product List</h2>
                 {this.state.products.map((product) => {
                     return (
                         <div key={product.id}>
-                            <Link to={{pathname: `/product/${product.id}`, obj: product}}>{product.title}</Link>
+                            <Link to={{pathname: `${this.props.location.pathname}${product.id}`, obj: product}}>{product.title}</Link>
                         </div>
                     )
                 })}
